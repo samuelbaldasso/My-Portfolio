@@ -1,4 +1,4 @@
-import { ExternalLink, Star } from "lucide-react";
+import { Star } from "lucide-react";
 import { GithubIcon } from "@/components/icons";
 import type { PortfolioProject } from "@/types/github";
 
@@ -15,8 +15,6 @@ export function ProjectCard({ project }: { project: PortfolioProject }) {
             </span>
           )}
         </div>
-
-        <p className="mt-2 text-sm text-muted-foreground">{project.description}</p>
 
         {project.topics.length > 0 && (
           <div className="mt-4 flex flex-wrap gap-2">
@@ -42,17 +40,6 @@ export function ProjectCard({ project }: { project: PortfolioProject }) {
           <GithubIcon className="size-4" />
           Code
         </a>
-        {project.demoUrl && (
-          <a
-            href={project.demoUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="flex items-center gap-1.5 font-medium transition-opacity hover:opacity-70"
-          >
-            <ExternalLink className="size-4" />
-            Demo
-          </a>
-        )}
       </div>
     </div>
   );
