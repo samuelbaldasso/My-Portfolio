@@ -1,7 +1,6 @@
 import { siteConfig } from "@/lib/site-config";
 import type { GitHubRepo, PortfolioProject } from "@/types/github";
 
-const PORTFOLIO_TOPIC = "portfolio";
 const REVALIDATE_SECONDS = 3600;
 
 function toPortfolioProject(repo: GitHubRepo): PortfolioProject {
@@ -12,7 +11,7 @@ function toPortfolioProject(repo: GitHubRepo): PortfolioProject {
     url: repo.html_url,
     demoUrl: repo.homepage && repo.homepage.trim().length > 0 ? repo.homepage : null,
     language: repo.language,
-    topics: repo.topics.filter((topic) => topic !== PORTFOLIO_TOPIC),
+    topics: repo.topics,
     stars: repo.stargazers_count,
     updatedAt: repo.pushed_at,
   };
@@ -45,7 +44,7 @@ export async function getPortfolioProjects(): Promise<PortfolioProject[]> {
     const repos: GitHubRepo[] = await response.json();
 
     return repos
-      .filter((repo) => !repo.fork && !repo.archived && repo.topics?.includes(PORTFOLIO_TOPIC))
+      .filter((repo) => !repo.fork && !repo.archived)
       .map(toPortfolioProject);
   } catch (error) {
     console.error("Failed to fetch repositories from GitHub:", error);

@@ -1,11 +1,11 @@
 export const siteConfig = {
   name: "Samuel Baldasso",
-  role: "Backend Engineering & Enterprise Systems Architecture",
-  tagline: "Backend specialist in Java and Node.js: robust APIs, scalable architecture, and systems that hold up under real production load.",
+  role: "Software Engineer · Java Backend, Full-Stack & Mobile",
+  tagline: "4+ years building Java backend microservices, event-driven architectures, and full-stack systems at IBM, CI&T, and NTT DATA.",
   githubUsername: "samuelbaldasso",
   avatarUrl: "https://github.com/samuelbaldasso.png",
   email: "baldassosamuel93@gmail.com",
-  location: "Brasil",
+  location: "Brasil (Remote-ready)",
   availableForWork: true,
   social: {
     github: "https://github.com/samuelbaldasso",
@@ -14,40 +14,42 @@ export const siteConfig = {
   stack: [
     "Java",
     "Spring Boot",
-    "Node.js",
-    "TypeScript",
-    "GraphQL",
-    "REST",
+    "Quarkus",
+    "Kafka",
     "React",
     "Next.js",
+    "Angular",
+    "AWS",
+    "Docker",
+    "PostgreSQL",
   ],
   about: {
     heading: "About",
     paragraphs: [
-      "I'm a backend-focused developer specializing in Java (Spring Boot) and Node.js/TypeScript, building APIs, services, and architectures that hold up critical systems in production.",
-      "As a freelancer, I join projects with a closed scope to solve real technical bottlenecks: performance, security, complex integrations, and architecture that scales — without giving up a solid React/Next.js frontend when the project calls for it.",
+      "Software Engineer with 4+ years of experience spanning Java backend, native mobile (Android/Kotlin, Flutter), and front-end (React, Angular) work across IBM, CI&T, and NTT DATA.",
+      "Recent focus on Java backend microservices (Spring Boot, Quarkus) and event-driven architectures (Kafka, Transactional Outbox), currently full-stack on a Java + React project. Comfortable with ambiguity and cross-functional collaboration in distributed, remote environments. Fluent in English (C1).",
     ],
   },
   services: [
     {
-      title: "Backend & Java systems",
-      description: "APIs and services with Java and Spring Boot, from transactional systems to mid-to-large-scale B2C/B2B platforms.",
+      title: "Backend & Java microservices",
+      description: "APIs and services with Java, Spring Boot, and Quarkus, from high-volume data handling to observability-focused platforms.",
     },
     {
-      title: "Enterprise systems architecture",
-      description: "Structuring microservices, resolving bottlenecks in legacy systems, and architectural decisions to support scale and concurrent users.",
+      title: "Event-driven architecture",
+      description: "Kafka-based systems, Transactional Outbox pattern, idempotency, and resilience patterns (Resilience4j, circuit breakers).",
     },
     {
-      title: "Integrations & APIs",
-      description: "Building REST/GraphQL APIs and integrating third-party services (payments, email, automations), with a focus on security and performance.",
+      title: "Full-stack Java + React",
+      description: "End-to-end delivery combining Java/Spring Boot backends with React and Next.js front-ends.",
     },
     {
-      title: "Full stack web applications",
-      description: "When the project calls for it, frontend development with React and Next.js on top of a robust Node.js or Java backend.",
+      title: "Mobile development",
+      description: "Native Android (Kotlin, Jetpack Compose, Clean Architecture) and Flutter apps for corporate and consumer use cases.",
     },
     {
       title: "Technical consulting",
-      description: "Architecture review, code review, and on-demand support for teams that need an outside perspective on performance and security.",
+      description: "Architecture review, code review, and refactoring for throughput, latency, and fault tolerance.",
     },
   ],
   contact: {
