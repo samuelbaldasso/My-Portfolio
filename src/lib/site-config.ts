@@ -1,60 +1,119 @@
 export const siteConfig = {
   name: "Samuel Baldasso",
-  role: "Software Engineer · Java Backend, Full-Stack & Mobile",
-  tagline: "4+ years building Java backend microservices, event-driven architectures, and full-stack systems at IBM, CI&T, and NTT DATA.",
+  role: "Senior Backend Software Engineer",
+  specialty: "Java · Distributed Systems · Cloud",
+  tagline:
+    "I design resilient backend systems and turn complex business rules into software that is clear, observable, and built to evolve.",
   githubUsername: "samuelbaldasso",
   avatarUrl: "https://github.com/samuelbaldasso.png",
   email: "baldassosamuel93@gmail.com",
-  location: "Brasil (Remote-ready)",
-  availableForWork: true,
+  location: "Macaé, Rio de Janeiro · Brazil",
   social: {
     github: "https://github.com/samuelbaldasso",
-    linkedin: "https://www.linkedin.com/in/samuel-baldasso",
+    linkedin: "https://www.linkedin.com/in/samuel-baldasso-java-developer",
   },
   stack: [
     "Java",
     "Spring Boot",
-    "Quarkus",
     "Kafka",
-    "React",
-    "Next.js",
-    "Angular",
-    "AWS",
-    "Docker",
+    "Go",
+    "TypeScript",
+    "NestJS",
     "PostgreSQL",
+    "Redis",
+    "Docker",
+    "AWS",
+  ],
+  stats: [
+    { value: "4+", label: "years building software" },
+    { value: "06", label: "pinned case studies" },
+    { value: "C1", label: "English proficiency" },
   ],
   about: {
-    heading: "About",
+    eyebrow: "Profile / 01",
+    heading: "Backend engineering with a systems mindset.",
     paragraphs: [
-      "Software Engineer with 4+ years of experience spanning Java backend, native mobile (Android/Kotlin, Flutter), and front-end (React, Angular) work across IBM, CI&T, and NTT DATA.",
-      "Recent focus on Java backend microservices (Spring Boot, Quarkus) and event-driven architectures (Kafka, Transactional Outbox), currently full-stack on a Java + React project. Comfortable with ambiguity and cross-functional collaboration in distributed, remote environments. Fluent in English (C1).",
+      "Senior Backend Software Engineer at IBM, with experience across Java backend, full-stack and mobile products for global companies including Bradesco, Vivo, Allianz, RD Saúde and AB InBev.",
+      "My recent work centers on Java microservices, high-volume data flows, observability and distributed systems. Outside client work, I build hands-on architecture projects to explore consistency, concurrency, messaging and fault tolerance in depth.",
     ],
   },
   services: [
     {
-      title: "Backend & Java microservices",
-      description: "APIs and services with Java, Spring Boot, and Quarkus, from high-volume data handling to observability-focused platforms.",
+      number: "01",
+      title: "Backend systems",
+      description:
+        "Java and Spring Boot services shaped around explicit domain boundaries, stable APIs and production-minded observability.",
     },
     {
-      title: "Event-driven architecture",
-      description: "Kafka-based systems, Transactional Outbox pattern, idempotency, and resilience patterns (Resilience4j, circuit breakers).",
+      number: "02",
+      title: "Distributed architecture",
+      description:
+        "Kafka, transactional outbox, idempotency, concurrency control, caching and resilience patterns with documented trade-offs.",
     },
     {
-      title: "Full-stack Java + React",
-      description: "End-to-end delivery combining Java/Spring Boot backends with React and Next.js front-ends.",
+      number: "03",
+      title: "API platforms",
+      description:
+        "Secure REST backends in Java, Go and NestJS, backed by PostgreSQL and designed for clear ownership and maintainability.",
     },
     {
-      title: "Mobile development",
-      description: "Native Android (Kotlin, Jetpack Compose, Clean Architecture) and Flutter apps for corporate and consumer use cases.",
-    },
-    {
-      title: "Technical consulting",
-      description: "Architecture review, code review, and refactoring for throughput, latency, and fault tolerance.",
+      number: "04",
+      title: "Technical evolution",
+      description:
+        "Architecture reviews, refactoring and delivery improvements focused on throughput, latency, fault tolerance and clean code.",
     },
   ],
+  projectDetails: {
+    "Java-Banking-Core": {
+      displayName: "Banking Ledger Core",
+      description:
+        "A high-integrity, double-entry ledger exploring immutable records, deterministic locking and reliable event delivery.",
+      highlights: ["Java 21", "Spring Boot", "Kafka", "PostgreSQL", "Keycloak"],
+    },
+    "Java-Subscription-B2C-Service": {
+      displayName: "Subscription Platform",
+      description:
+        "A B2C billing lifecycle built around six distributed-system patterns, from transactional outbox to circuit breakers.",
+      highlights: ["Java 17", "Spring Boot", "Kafka", "Redis", "Testcontainers"],
+    },
+    "Java-Uber-Like-App": {
+      displayName: "Courier Delivery Service",
+      description:
+        "A modular delivery backend with JWT security, courier tracking and real-time updates over WebSockets.",
+      highlights: ["Java 17", "Spring Boot", "WebSocket", "PostgreSQL"],
+    },
+    Springify: {
+      displayName: "Springify",
+      description:
+        "An AI-powered CLI that generates hexagonal Java projects through parallel file generation with Java virtual threads.",
+      highlights: ["Java 21", "Hexagonal Architecture", "LLMs", "GraalVM"],
+    },
+    "Go-Rate-Limiter-Service": {
+      displayName: "Go Rate Limiter",
+      description:
+        "A dependency-free HTTP service implementing per-client token buckets, safe concurrency and graceful shutdown.",
+      highlights: ["Go", "Token Bucket", "Concurrency", "Docker"],
+    },
+    "Node-Nest-Restaurant-Management": {
+      displayName: "Restaurant Platform API",
+      description:
+        "A multi-tenant food-delivery API with ownership-based authorization, order workflows and Google OAuth.",
+      highlights: ["NestJS", "TypeScript", "Prisma", "PostgreSQL", "OAuth 2.0"],
+    },
+  },
   contact: {
-    heading: "Let's talk",
+    eyebrow: "Contact / 04",
+    heading: "Let’s build something that holds up.",
     description:
-      "Have a project in mind or need one-off help? Send me a direct email with the details and I'll get back to you as soon as possible.",
+      "For backend engineering, architecture or product work, send me a note with the problem you are trying to solve.",
   },
 } as const;
+
+export const pinnedRepositories = [
+  "Java-Banking-Core",
+  "Java-Subscription-B2C-Service",
+  "Java-Uber-Like-App",
+  "Springify",
+  "Go-Rate-Limiter-Service",
+  "Node-Nest-Restaurant-Management",
+] as const;

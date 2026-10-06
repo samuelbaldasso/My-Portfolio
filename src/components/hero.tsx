@@ -1,72 +1,65 @@
-import { ArrowRight, Download } from "lucide-react";
+import { ArrowDownRight, ArrowUpRight, Download } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
 
 export function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden">
-      <div className="hero-glow" aria-hidden />
-      <div className="bg-grid absolute inset-x-0 top-0 -z-10 h-[28rem]" aria-hidden />
-
-      <div className="mx-auto max-w-5xl px-6 pb-20 pt-16 sm:pt-24">
-        <div className="flex flex-col items-start gap-10 sm:flex-row sm:items-center sm:justify-between">
-          <div className="max-w-xl">
-            {siteConfig.availableForWork && (
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-muted-foreground">
-                <span className="relative flex size-1.5">
-                  <span className="absolute inline-flex size-full animate-ping rounded-full bg-success opacity-75" />
-                  <span className="relative inline-flex size-1.5 rounded-full bg-success" />
-                </span>
-                Available for new projects
-              </span>
-            )}
-
-            <p className="mt-4 text-sm font-medium text-accent">{siteConfig.role}</p>
-            <h1 className="mt-2 text-4xl font-semibold tracking-tight sm:text-5xl">
-              {siteConfig.name}
+    <section id="top" className="relative overflow-hidden border-b border-border">
+      <div className="hero-orb" aria-hidden />
+      <div className="page-shell relative py-14 sm:py-20 lg:py-28">
+        <div className="grid items-end gap-12 lg:grid-cols-[1fr_17rem] lg:gap-20">
+          <div>
+            <p className="eyebrow animate-in">Backend Engineer / IBM / Brazil</p>
+            <h1 className="animate-in mt-6 max-w-4xl text-[clamp(3.25rem,9vw,7.8rem)] font-semibold leading-[0.86] tracking-[-0.075em]">
+              Reliable systems.
+              <span className="block text-accent">Clear thinking.</span>
             </h1>
-            <p className="mt-6 text-lg text-muted-foreground">{siteConfig.tagline}</p>
+            <p className="animate-in mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground sm:text-xl">
+              {siteConfig.tagline}
+            </p>
 
-            <div className="mt-8 flex flex-wrap items-center gap-4">
-              <Link
-                href="#contato"
-                className="group flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-accent-foreground transition-transform hover:scale-[1.02] active:scale-[0.98]"
-              >
-                Start a project
-                <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
+            <div className="animate-in mt-9 flex flex-wrap gap-3">
+              <Link href="#projetos" className="button-primary">
+                Explore selected work <ArrowDownRight className="size-4" />
               </Link>
-              <Link
-                href="#projetos"
-                className="rounded-full border border-border bg-card px-5 py-2.5 text-sm font-medium transition-colors hover:bg-muted"
-              >
-                View projects
-              </Link>
-              <a
-                href="/Samuel_Baldasso_Resume_Java.pdf"
-                download
-                className="group flex items-center gap-2 rounded-full border border-border bg-card px-5 py-2.5 text-sm font-medium transition-colors hover:bg-muted"
-              >
-                <Download className="size-4" />
-                Download resume
+              <a href="/Samuel_Baldasso_Resume_Java.pdf" download className="button-secondary">
+                <Download className="size-4" /> Resume
               </a>
             </div>
           </div>
 
-          <div className="relative shrink-0">
-            <div
-              className="absolute -inset-1.5 rounded-full bg-gradient-to-br from-accent to-accent/30 opacity-60 blur-lg"
-              aria-hidden
-            />
-            <Image
-              src={siteConfig.avatarUrl}
-              alt={siteConfig.name}
-              width={160}
-              height={160}
-              priority
-              className="relative size-32 rounded-full border-2 border-background object-cover sm:size-40"
-            />
-          </div>
+          <aside className="animate-in relative overflow-hidden rounded-[2rem] border border-border bg-card p-4 shadow-2xl shadow-black/5">
+            <div className="relative aspect-[4/4.5] overflow-hidden rounded-[1.4rem] bg-surface">
+              <Image
+                src={siteConfig.avatarUrl}
+                alt={siteConfig.name}
+                fill
+                priority
+                sizes="(max-width: 1024px) 272px, 272px"
+                className="object-cover grayscale transition duration-500 hover:grayscale-0"
+              />
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 to-transparent p-5 pt-16 text-white">
+                <p className="font-semibold">{siteConfig.name}</p>
+                <p className="mt-1 text-xs text-white/70">{siteConfig.specialty}</p>
+              </div>
+            </div>
+            <a
+              href={`mailto:${siteConfig.email}`}
+              className="mt-4 flex items-center justify-between rounded-2xl bg-accent px-4 py-3 text-sm font-semibold text-accent-foreground"
+            >
+              Start a conversation <ArrowUpRight className="size-4" />
+            </a>
+          </aside>
+        </div>
+
+        <div className="mt-14 grid border-y border-border sm:grid-cols-3 lg:mt-20">
+          {siteConfig.stats.map((stat) => (
+            <div key={stat.label} className="flex items-baseline gap-4 border-b border-border py-5 last:border-b-0 sm:border-b-0 sm:border-r sm:px-6 sm:first:pl-0 sm:last:border-r-0">
+              <strong className="text-3xl font-semibold tracking-tight">{stat.value}</strong>
+              <span className="text-sm text-muted-foreground">{stat.label}</span>
+            </div>
+          ))}
         </div>
       </div>
     </section>

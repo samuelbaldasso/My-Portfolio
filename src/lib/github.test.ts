@@ -25,12 +25,13 @@ describe("getPortfolioProjects", () => {
     vi.unstubAllGlobals();
   });
 
-  it("returns only repositories with the 'portfolio' topic, ignoring forks and archived", async () => {
+  it("returns only pinned repositories in profile order, ignoring forks and archived", async () => {
     const repos: GitHubRepo[] = [
-      makeRepo({ id: 1, name: "shown", topics: ["portfolio", "react"] }),
-      makeRepo({ id: 2, name: "no-topic", topics: ["react"] }),
-      makeRepo({ id: 3, name: "is-fork", topics: ["portfolio"], fork: true }),
-      makeRepo({ id: 4, name: "is-archived", topics: ["portfolio"], archived: true }),
+      makeRepo({ id: 1, name: "Springify" }),
+      makeRepo({ id: 2, name: "not-pinned" }),
+      makeRepo({ id: 3, name: "Java-Banking-Core", fork: true }),
+      makeRepo({ id: 4, name: "Go-Rate-Limiter-Service", archived: true }),
+      makeRepo({ id: 5, name: "Java-Subscription-B2C-Service" }),
     ];
 
     vi.stubGlobal(
@@ -43,9 +44,11 @@ describe("getPortfolioProjects", () => {
 
     const projects = await getPortfolioProjects();
 
-    expect(projects).toHaveLength(1);
-    expect(projects[0].name).toBe("shown");
-    expect(projects[0].topics).not.toContain("portfolio");
+    expect(projects).toHaveLength(2);
+    expect(projects.map((project) => project.name)).toEqual([
+      "Subscription Platform",
+      "Springify",
+    ]);
   });
 
   it("returns an empty list when the GitHub API responds with an error", async () => {
@@ -79,12 +82,12 @@ describe("getPortfolioProjects", () => {
       "fetch",
       vi.fn().mockResolvedValue({
         ok: true,
-        json: async () => [makeRepo({ description: null })],
+        json: async () => [makeRepo({ name: "Springify", description: null })],
       }),
     );
 
     const projects = await getPortfolioProjects();
 
-    expect(projects[0].description).toBe("No description provided.");
+    expect(projects[0].description).toContain("AI-powered CLI");
   });
 });

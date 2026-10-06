@@ -1,44 +1,13 @@
-import { Mail } from "lucide-react";
-import { GithubIcon, LinkedinIcon } from "@/components/icons";
+import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
 
 export function Footer() {
-  const year = new Date().getFullYear();
-
   return (
     <footer className="border-t border-border">
-      <div className="mx-auto flex max-w-5xl flex-col items-center gap-4 px-6 py-10 text-sm text-muted-foreground sm:flex-row sm:justify-between">
-        <p>
-          © {year} {siteConfig.name}. All rights reserved.
-        </p>
-
-        <div className="flex items-center gap-4">
-          <a
-            href={siteConfig.social.github}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="GitHub"
-            className="transition-colors hover:text-accent"
-          >
-            <GithubIcon className="size-4" />
-          </a>
-          <a
-            href={siteConfig.social.linkedin}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="LinkedIn"
-            className="transition-colors hover:text-accent"
-          >
-            <LinkedinIcon className="size-4" />
-          </a>
-          <a
-            href={`mailto:${siteConfig.email}`}
-            aria-label="E-mail"
-            className="transition-colors hover:text-accent"
-          >
-            <Mail className="size-4" />
-          </a>
-        </div>
+      <div className="page-shell flex flex-col gap-3 py-7 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+        <p>© {new Date().getFullYear()} {siteConfig.name}</p>
+        <p>Backend engineering from {siteConfig.location}</p>
+        <Link href="#top" className="font-semibold text-foreground hover:text-accent">Back to top ↑</Link>
       </div>
     </footer>
   );

@@ -2,71 +2,27 @@ import { ArrowUpRight, Mail, MapPin } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
 import { siteConfig } from "@/lib/site-config";
 
-const links = [
-  {
-    label: "GitHub",
-    value: `github.com/${siteConfig.githubUsername}`,
-    href: siteConfig.social.github,
-    icon: GithubIcon,
-  },
-  {
-    label: "LinkedIn",
-    value: "linkedin.com/in/samuel-baldasso",
-    href: siteConfig.social.linkedin,
-    icon: LinkedinIcon,
-  },
-];
-
 export function Contact() {
   return (
-    <section id="contato" className="border-t border-border bg-muted/40">
-      <div className="mx-auto max-w-5xl px-6 py-16">
-        <h2 className="text-2xl font-semibold tracking-tight">{siteConfig.contact.heading}</h2>
-        <p className="mt-3 max-w-xl text-muted-foreground">{siteConfig.contact.description}</p>
-
-        <div className="mt-8 grid gap-4 sm:grid-cols-[1.4fr_1fr]">
-          <a
-            href={`mailto:${siteConfig.email}`}
-            className="group flex flex-col justify-between rounded-xl border border-border bg-gradient-to-br from-accent to-accent/80 p-6 text-accent-foreground transition-transform hover:scale-[1.01]"
-          >
-            <div className="flex items-center justify-between">
-              <span className="flex size-10 items-center justify-center rounded-lg bg-white/15">
-                <Mail className="size-5" />
-              </span>
-              <ArrowUpRight className="size-5 opacity-70 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </div>
-            <div className="mt-6">
-              <p className="text-sm opacity-80">Send a direct email</p>
-              <p className="mt-1 text-lg font-medium break-all">{siteConfig.email}</p>
-            </div>
-          </a>
-
-          <div className="flex flex-col gap-4">
-            {links.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                target="_blank"
-                rel="noreferrer"
-                className="group flex items-center justify-between rounded-xl border border-border bg-card p-5 transition-colors hover:border-accent/40"
-              >
-                <span className="flex items-center gap-3">
-                  <link.icon className="size-4 text-muted-foreground" />
-                  <span>
-                    <span className="block text-sm font-medium">{link.label}</span>
-                    <span className="block text-xs text-muted-foreground">{link.value}</span>
-                  </span>
-                </span>
-                <ArrowUpRight className="size-4 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </a>
-            ))}
+    <section id="contato" className="border-t border-border">
+      <div className="page-shell section-space">
+        <p className="eyebrow">{siteConfig.contact.eyebrow}</p>
+        <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
+          <div>
+            <h2 className="max-w-4xl text-[clamp(2.8rem,7vw,6.5rem)] font-semibold leading-[0.92] tracking-[-0.065em]">{siteConfig.contact.heading}</h2>
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">{siteConfig.contact.description}</p>
           </div>
+          <a href={`mailto:${siteConfig.email}`} className="group flex size-40 shrink-0 flex-col justify-between rounded-full bg-accent p-7 text-accent-foreground transition-transform hover:rotate-3 sm:size-48">
+            <Mail className="size-6" />
+            <span className="flex items-center justify-between text-sm font-semibold">Email me <ArrowUpRight className="size-5 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" /></span>
+          </a>
         </div>
 
-        <p className="mt-6 flex items-center gap-1.5 text-sm text-muted-foreground">
-          <MapPin className="size-4" />
-          {siteConfig.location}
-        </p>
+        <div className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-3">
+          <a href={siteConfig.social.github} target="_blank" rel="noreferrer" className="contact-link"><GithubIcon className="size-5" /><span>GitHub</span><ArrowUpRight className="ml-auto size-4" /></a>
+          <a href={siteConfig.social.linkedin} target="_blank" rel="noreferrer" className="contact-link"><LinkedinIcon className="size-5" /><span>LinkedIn</span><ArrowUpRight className="ml-auto size-4" /></a>
+          <div className="contact-link"><MapPin className="size-5" /><span>{siteConfig.location}</span></div>
+        </div>
       </div>
     </section>
   );

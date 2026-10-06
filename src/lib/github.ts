@@ -1,17 +1,19 @@
-import { siteConfig } from "@/lib/site-config";
+import { pinnedRepositories, siteConfig } from "@/lib/site-config";
 import type { GitHubRepo, PortfolioProject } from "@/types/github";
 
 const REVALIDATE_SECONDS = 3600;
 
 function toPortfolioProject(repo: GitHubRepo): PortfolioProject {
+  const details = siteConfig.projectDetails[repo.name as keyof typeof siteConfig.projectDetails];
+
   return {
     id: repo.id,
-    name: repo.name,
-    description: repo.description ?? "No description provided.",
+    name: details?.displayName ?? repo.name,
+    description: details?.description ?? repo.description ?? "Open-source software project.",
     url: repo.html_url,
     demoUrl: repo.homepage && repo.homepage.trim().length > 0 ? repo.homepage : null,
     language: repo.language,
-    topics: repo.topics,
+    topics: details ? [...details.highlights] : repo.topics,
     stars: repo.stargazers_count,
     updatedAt: repo.pushed_at,
   };
@@ -43,9 +45,14 @@ export async function getPortfolioProjects(): Promise<PortfolioProject[]> {
 
     const repos: GitHubRepo[] = await response.json();
 
-    return repos
-      .filter((repo) => !repo.fork && !repo.archived)
-      .map(toPortfolioProject);
+    const reposByName = new Map(
+      repos.filter((repo) => !repo.fork && !repo.archived).map((repo) => [repo.name, repo]),
+    );
+
+    return pinnedRepositories.flatMap((name) => {
+      const repo = reposByName.get(name);
+      return repo ? [toPortfolioProject(repo)] : [];
+    });
   } catch (error) {
     console.error("Failed to fetch repositories from GitHub:", error);
     return [];
