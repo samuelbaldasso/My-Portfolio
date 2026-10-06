@@ -7,6 +7,8 @@ export const siteConfig = {
   githubUsername: "samuelbaldasso",
   avatarUrl: "https://github.com/samuelbaldasso.png",
   email: "baldassosamuel93@gmail.com",
+  emailHref:
+    "https://mail.google.com/mail/?view=cm&fs=1&to=baldassosamuel93%40gmail.com&su=Portfolio%20inquiry",
   location: "Macaé, Rio de Janeiro · Brazil",
   social: {
     github: "https://github.com/samuelbaldasso",

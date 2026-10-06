@@ -45,7 +45,9 @@ export function Hero() {
               </div>
             </div>
             <a
-              href={`mailto:${siteConfig.email}`}
+              href={siteConfig.emailHref}
+              target="_blank"
+              rel="noreferrer"
               className="mt-4 flex items-center justify-between rounded-2xl bg-accent px-4 py-3 text-sm font-semibold text-accent-foreground"
             >
               Start a conversation <ArrowUpRight className="size-4" />

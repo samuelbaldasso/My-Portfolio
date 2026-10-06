@@ -13,7 +13,9 @@ export function Contact() {
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">{siteConfig.contact.description}</p>
           </div>
           <a
-            href={`mailto:${siteConfig.email}`}
+            href={siteConfig.emailHref}
+            target="_blank"
+            rel="noreferrer"
             className="group flex min-h-52 flex-col justify-between rounded-[2rem] bg-accent p-7 text-accent-foreground transition-all hover:-translate-y-1 hover:shadow-2xl hover:shadow-accent/20 sm:p-8"
             aria-label={`Send an email to ${siteConfig.email}`}
           >
