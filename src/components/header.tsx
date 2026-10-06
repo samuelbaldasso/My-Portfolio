@@ -18,7 +18,7 @@ export function Header() {
           <span className="flex size-8 items-center justify-center rounded-full bg-foreground text-[10px] font-black tracking-tight text-background transition-transform group-hover:rotate-6">
             SB
           </span>
-          <span className="hidden text-sm font-semibold tracking-tight xs:block sm:block">
+          <span className="hidden text-sm font-semibold tracking-tight sm:block">
             {siteConfig.name}
           </span>
         </Link>

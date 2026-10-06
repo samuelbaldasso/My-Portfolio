@@ -25,7 +25,7 @@ export const siteConfig = {
     "AWS",
   ],
   stats: [
-    { value: "4+", label: "years building software" },
+    { value: "5+", label: "years building software" },
     { value: "06", label: "pinned case studies" },
     { value: "C1", label: "English proficiency" },
   ],

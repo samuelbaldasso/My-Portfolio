@@ -10,7 +10,7 @@ export function Hero() {
       <div className="page-shell relative py-14 sm:py-20 lg:py-28">
         <div className="grid items-end gap-12 lg:grid-cols-[1fr_17rem] lg:gap-20">
           <div>
-            <p className="eyebrow animate-in">Backend Engineer / IBM / Brazil</p>
+            <p className="eyebrow animate-in">{siteConfig.role} / IBM / Brazil</p>
             <h1 className="animate-in mt-6 max-w-4xl text-[clamp(3.25rem,9vw,7.8rem)] font-semibold leading-[0.86] tracking-[-0.075em]">
               Reliable systems.
               <span className="block text-accent">Clear thinking.</span>
